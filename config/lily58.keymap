@@ -10,6 +10,15 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
+	behaviors {
+		mt_test: modified_tap_test {
+			flavor = "balanced";
+			retro-tap;
+			tapping-term-ms = <170>;
+			bindings = <&kp>, <&kp>;
+		};
+	};
+
 	keymap {
 		compatible = "zmk,keymap";
 
@@ -65,24 +74,6 @@
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
-	};
-};
-
-/ {
-	behaviors {
-		mt_test: modified_tap_test {
-			flavor = "balanced";
-			retro-tap;
-			tapping-term-ms = <170>;
-			bindings = <&kp>, <&kp>;
-		};
-	};
-
-	keymap {
-		compatible = "zmk,keymap";
-		default_layer {
-			bindings = <&mt_test LCTRL SPACE>;
 		};
 	};
 };
